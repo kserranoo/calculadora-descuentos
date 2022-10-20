@@ -119,7 +119,6 @@
     btnCalcular.addEventListener('click', calcularDescuento);
     btnReset.addEventListener('click', _ => {location.reload()});
 
-
     function calcularDescuento() {
         const precioDescuento = "El costo de su compra es de: $" + precio.value*(100-descuento.value)/100;
         const ofertaProducto = document.createElement('span');
