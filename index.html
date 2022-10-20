@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;400&family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>Calcula tu descuento</title>
+
+    <style>
+        :root {
+        --lila: #B1AFFF;
+        --cielo: #B8E8FC;
+        --limon: #C8FFD4;
+        --lima: #FDFDBD;
+        --text-input-field: #8b8989;
+        --sm: 14px;
+        --md: 16px;
+        --lg: 18px
+        }
+        body {
+            background: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Josefin Sans', sans-serif;
+            margin-top: 100px;
+ 
+        }
+        .cupon-descuento {
+            background: var(--limon);
+            display: flex;
+            border: 1px var(--lila);
+            border-radius: 10px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 400px;
+            height: 500px;
+        }
+        .cupon-descuento img {
+            width: 250px;
+            height: 200px;
+            border-radius: 5px;
+        }
+        .title {
+            text-align: center;
+            font-size: var(--sm);
+        }
+        .botones {
+            display: flex;
+            flex-direction:row;
+        }
+        .botones button {
+            background: var(--lila);
+            border: transparent;
+            border-radius: 5px;
+            width: 150px;
+            height: 50px;
+            margin: 10px 10px;
+            font-family: 'Josefin Sans', sans-serif;
+            margin-top: 10px;
+            
+        }
+        .price, .discount {
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            margin-bottom: 0;
+            margin-top: 5px;
+        }
+        .precio, .descuento {
+            width: 150px;
+            height: 20px;
+            border: transparent;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            margin-top: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="cupon-descuento">
+        <div class="title">
+            <h1> Calcule el precio neto de su compra</h1>
+        </div>
+        <div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7agkGdALMlUFh8RfdDy3vBx0x0kl8jh_G_A&usqp=CAU" alt="cupon de descuento">
+        </div>
+        <div class="price">
+            <input class="precio" type="number" placeholder="$"></input> 
+            <label for="precio"> Ingrese el precio de su compra</label>
+        </div>
+        <div class="discount">
+            <input class="descuento" type="number" placeholder="%"> </input>
+            <label for="descuento"> Ingrese el porcentaje de descuento de su cupón</label>
+        </div>
+        <div class="oferta">
+        </div>
+        <div class="botones">
+            <button class="btn-calcular">Calcular</button>
+            <button type="reset" class="btn-reset"> Reiniciar</button>
+        </div>
+    </div>
+    
+    
+</body>
+<script>
+    const precio = document.getElementsByClassName('precio')[0];
+    const descuento = document.getElementsByClassName('descuento')[0];
+    const oferta = document.getElementsByClassName('oferta')[0];
+    const btnCalcular = document.getElementsByClassName('btn-calcular')[0];
+    const btnReset = document.getElementsByClassName('btn-reset')[0];
+    
+    btnCalcular.addEventListener('click', calcularDescuento);
+    btnReset.addEventListener('click', _ => {location.reload()});
+
+
+    function calcularDescuento() {
+        const precioDescuento = "El costo de su compra es de: $" + precio.value*(100-descuento.value)/100;
+        const ofertaProducto = document.createElement('span');
+        ofertaProducto.innerText = precioDescuento;
+        oferta.appendChild(ofertaProducto)
+
+        btnCalcular.disabled = true;
+    }
+</script>
+</html>
