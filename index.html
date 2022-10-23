@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;400&family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
-    <title>Calcula tu descuento</title>
+    <title>Aplica tu cupón de descuento</title>
 
     <style>
         :root {
@@ -70,7 +70,13 @@
             flex-direction: column-reverse;
             align-items: center;
             margin-bottom: 0;
-            margin-top: 5px;
+            margin-top: 0;
+        }
+        .price {
+            margin-top: 10px; 
+        }
+        label {
+            margin-bottom: 5px;
         }
         .precio, .descuento {
             width: 150px;
@@ -86,7 +92,7 @@
 <body>
     <div class="cupon-descuento">
         <div class="title">
-            <h1> Calcule el precio neto de su compra</h1>
+            <h1> Usa tu cupón aquí 👇🏽</h1>
         </div>
         <div>
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7agkGdALMlUFh8RfdDy3vBx0x0kl8jh_G_A&usqp=CAU" alt="cupon de descuento">
@@ -96,8 +102,8 @@
             <label for="precio"> Ingrese el precio de su compra</label>
         </div>
         <div class="discount">
-            <input class="descuento" type="number" placeholder="%"> </input>
-            <label for="descuento"> Ingrese el porcentaje de descuento de su cupón</label>
+            <input class="coupon" type="text" placeholder="Escribe: pruebame"> </input>
+            <label for="coupon"> Ingrese su cupón</label>
         </div>
         <div class="oferta">
         </div>
